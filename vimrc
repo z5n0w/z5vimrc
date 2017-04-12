@@ -1,28 +1,26 @@
 "Setup Vundle
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-    Bundle 'VundleVim/Vundle.vim'
+    set rtp+=~/.vim/bundle/Vundle.vim/
+    call vundle#begin()
+        Bundle 'VundleVim/Vundle.vim'
 
 
-    Bundle 'octol/vim-cpp-enhanced-highlight'
-    Bundle 'vim-airline/vim-airline'
-    Plugin 'vim-airline/vim-airline-themes'
-    Bundle 'scrooloose/nerdtree'
-    Bundle 'majutsushi/tagbar'
-    "Bundle 'scrooloose/syntastic'
-    Bundle 'Yggdroot/indentLine'
-    Bundle 'darfink/vim-plist'
-    "Bundle 'terryma/vim-multiple-cursors'
-    "Bundle 'SirVer/ultisnips'
+        Bundle 'octol/vim-cpp-enhanced-highlight'
+        Bundle 'vim-airline/vim-airline'
+        Plugin 'vim-airline/vim-airline-themes'
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'majutsushi/tagbar'
+        "Bundle 'scrooloose/syntastic'
+        Bundle 'Yggdroot/indentLine'
+        Bundle 'darfink/vim-plist'
+        "Bundle 'terryma/vim-multiple-cursors'
+        "Bundle 'SirVer/ultisnips'
 
-    Bundle 'Valloric/YouCompleteMe' 
+        Bundle 'Valloric/YouCompleteMe' 
 
-    Bundle 'vim-scripts/indentpython.vim'
-call vundle#end()
-
+        Bundle 'vim-scripts/indentpython.vim'
+    call vundle#end()
 
 "Airline
-
     let g:airline_theme="dark" 
     
     nmap tp :tabp<cr>
@@ -33,23 +31,27 @@ call vundle#end()
 
     let g:airline#extensions#tabline#enabled=1
     let g:airline#extensions#tabline#buffer_nr_show=1
-
-    "这个是安装字体后 必须设置此项" 
+    
+    "Using Powerline's Fonts after Install 
     "let g:airline_powerline_fonts=1
 
     if !exists('g:airline_symbols')
         let g:airline_symbols={}
     endif
 
-    let g:airline_left_sep='▶'
-    let g:airline_left_alt_sep='>'
-    let g:airline_right_sep='◀'
-    let g:airline_right_alt_sep='<'
+    let g:airline_left_sep='\'
+    let g:airline_left_alt_sep='\'
+    let g:airline_right_sep='/'
+    let g:airline_right_alt_sep='/'
+    "let g:airline_left_sep='▶'
+    "let g:airline_left_alt_sep='>'
+    "let g:airline_right_sep='◀'
+    "let g:airline_right_alt_sep='<'
     let g:airline_symbols.branch='⎇'
     let g:airline_symbols.readonly='◎'
     let g:airline_symbols.linenr='¶'
-    let g:airline__detect_modified=1
-    let g:airline__detect_paste=1
+    let g:airline_detect_modified=1
+    let g:airline_detect_paste=1
 
 "NERDTree
     let g:NERDTree_title='NERD Tree'
