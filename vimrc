@@ -24,9 +24,7 @@ call vundle#end()
 "Airline
 
     let g:airline_theme="dark" 
-    let g:airline#extensions#tabline#enabled=1
-
-
+    
     nmap tp :tabp<cr>
     nmap tn :tabn<cr>
     nmap tx :tabc<cr>
@@ -59,9 +57,7 @@ call vundle#end()
 
     nmap fm :NERDTree<cr>
 
-
 ""syntastic
-    "
     "let g:syntastic_check_on_open=1
     "
     "let g:syntastic_cpp_include_dirs=['/usr/include/']
