@@ -129,7 +129,7 @@
 "Tagbar
     nmap tb :TagbarToggle<CR>
     let g:tagbar_ctags_bin='/usr/bin/ctags'
-    let g:tagbar_width=30
+    let g:tagbar_width=20
     autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 "VIM SETTINGS
