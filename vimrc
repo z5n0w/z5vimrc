@@ -3,7 +3,6 @@
     call vundle#begin()
         Bundle 'VundleVim/Vundle.vim'
 
-
         Bundle 'octol/vim-cpp-enhanced-highlight'
         Bundle 'vim-airline/vim-airline'
         Plugin 'vim-airline/vim-airline-themes'
@@ -12,10 +11,9 @@
         "Bundle 'scrooloose/syntastic'
         Bundle 'Yggdroot/indentLine'
         Bundle 'darfink/vim-plist'
-        "Bundle 'terryma/vim-multiple-cursors'
-        "Bundle 'SirVer/ultisnips'
 
         Bundle 'Valloric/YouCompleteMe' 
+        Bundle 'davidhalter/jedi-vim'
 
         Bundle 'vim-scripts/indentpython.vim'
     call vundle#end()
