@@ -1,3 +1,41 @@
+
+"VIM SETTINGS
+    " Uncomment the following to have Vim jump to the last position when
+    " reopening a file
+    if has("autocmd")
+      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    endif
+
+    let python_highlight_all=1
+
+    set autoindent
+    set ignorecase
+    set number
+    set relativenumber
+
+    set ruler
+
+    set foldenable
+    set fdm=indent
+
+    set smarttab
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+    set expandtab
+
+    syntax on
+    filetype off
+
+    set laststatus=2
+
+    set background=dark
+    set t_Co=256
+
+    set fileformat=unix
+
+    set mouse=v
+
 "Setup Vundle
     set rtp+=~/.vim/bundle/Vundle.vim/
     call vundle#begin()
@@ -10,6 +48,7 @@
         Bundle 'majutsushi/tagbar'
         "Bundle 'scrooloose/syntastic'
         Bundle 'Yggdroot/indentLine'
+
         Bundle 'darfink/vim-plist'
 
         Bundle 'Valloric/YouCompleteMe' 
@@ -17,6 +56,8 @@
 
         Bundle 'vim-scripts/indentpython.vim'
     call vundle#end()
+
+filetype plugin indent on
 
 "Airline
     let g:airline_theme="dark" 
@@ -124,48 +165,15 @@
 
     let g:ycm_key_invoke_completion='<C-a>'
 
+"JEDI 
+    let g:jedi#auto_initialization = 1
+    let g:jedi#auto_vim_configuration = 1
+    let g:jedi#use_tabs_not_buffers = 1
+    let g:jedi#use_splits_not_buffers = "top"
+
 "Tagbar
     nmap tb :TagbarToggle<CR>
     let g:tagbar_ctags_bin='/usr/bin/ctags'
-    let g:tagbar_width=20
+    let g:tagbar_width=30
     autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
-"VIM SETTINGS
-
-    " Uncomment the following to have Vim jump to the last position when
-    " reopening a file
-    if has("autocmd")
-      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-    endif
-
-    let python_highlight_all=1
-
-    set autoindent
-    set ignorecase
-    set number
-    set relativenumber
-
-    set ruler
-
-    set foldenable
-    set fdm=indent
-
-    set smarttab
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
-
-    filetype on
-    filetype plugin indent on
-    syntax on
-    "set cursorline
-
-    set laststatus=2
-
-    set background=dark
-    set t_Co=256
-
-    set expandtab
-    set fileformat=unix
-
-    set mouse=v
