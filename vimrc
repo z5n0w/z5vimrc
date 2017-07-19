@@ -1,12 +1,11 @@
 
 "VIM SETTINGS
-    " Uncomment the following to have Vim jump to the last position when
-    " reopening a file
     if has("autocmd")
       au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     endif
 
     let python_highlight_all=1
+    set encoding=utf-8
 
     set autoindent
     set ignorecase
