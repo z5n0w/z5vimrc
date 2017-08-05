@@ -39,21 +39,18 @@
     set rtp+=~/.vim/bundle/Vundle.vim/
     call vundle#begin()
         Bundle 'VundleVim/Vundle.vim'
-
-        Bundle 'octol/vim-cpp-enhanced-highlight'
         Bundle 'vim-airline/vim-airline'
         Plugin 'vim-airline/vim-airline-themes'
         Bundle 'scrooloose/nerdtree'
-        Bundle 'majutsushi/tagbar'
-        "Bundle 'scrooloose/syntastic'
         Bundle 'Yggdroot/indentLine'
-
         Bundle 'darfink/vim-plist'
-
+        Bundle 'majutsushi/tagbar'
         Bundle 'Valloric/YouCompleteMe' 
+        Bundle 'octol/vim-cpp-enhanced-highlight'
         Bundle 'davidhalter/jedi-vim'
-
         Bundle 'vim-scripts/indentpython.vim'
+        Bundle 'mattn/emmet-vim'
+        "Bundle 'scrooloose/syntastic'
     call vundle#end()
 
 filetype plugin indent on
