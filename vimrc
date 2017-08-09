@@ -1,7 +1,7 @@
 
 "VIM SETTINGS
     if has("autocmd")
-      au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+        au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     endif
 
     let python_highlight_all=1
@@ -122,12 +122,12 @@ filetype plugin indent on
     "let g:syntastic_auto_loc_list=0
     "let g:syntastic_loc_list_height=5
     "function! ToggleErrors()
-    "	let old_last_winnr=winnr('$')
-    "	lclose
-    "	if old_last_winnr == winnr('$')
-    "		" Nothing was closed, open syntastic error location panel
-    "		Errors
-    "	endif
+    "   let old_last_winnr=winnr('$')
+    "   lclose
+    "   if old_last_winnr == winnr('$')
+    "       " Nothing was closed, open syntastic error location panel
+    "       Errors
+    "   endif
     "endfunction
     "
     "nnoremap <Leader>sl :call ToggleErrors()<cr>
