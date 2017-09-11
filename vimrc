@@ -36,9 +36,9 @@
     set mouse=v
 
 "Setup Vundle
-    set rtp+=~/.vim/bundle/Vundle.vim/
+    set rtp+=~/.vim/bundle/Vundle.Vim/
     call vundle#begin()
-        Bundle 'VundleVim/Vundle.vim'
+        Bundle 'VundleVim/Vundle.Vim'
         Bundle 'vim-airline/vim-airline'
         Plugin 'vim-airline/vim-airline-themes'
         Bundle 'scrooloose/nerdtree'

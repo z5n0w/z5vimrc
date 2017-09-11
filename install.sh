@@ -3,10 +3,10 @@
 if [ ! -d ~/.vim ]; then
     mkdir -p ~/.vim/bundle
     cp ./vimrc ~/.vim/vimrc
-    cp -r ./Vundle.Vim ~/.vim/bundle/Vundle.vim
+    cp -r ./Vundle.Vim ~/.vim/bundle/
 else if [ -f ~/.vim/vimrc ]; then
         mv ~/.vim/vimrc ~/.vim/vimrc_bak
-        echo "You old vimrc renameed as vimrc_bak"
+        echo "You old vimrc renamed as vimrc_bak"
         cp ./vimrc ~/.vim/vimrc
     else
         cp ./vimrc ~/.vim/vimrc
