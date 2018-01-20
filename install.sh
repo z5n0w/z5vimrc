@@ -1,21 +1,30 @@
 #/bin/bash
 
+#check Vundle
 if [ ! -d ~/.vim ]; then
     mkdir -p ~/.vim/bundle
-    cp ./vimrc ~/.vim/vimrc
-    cp -r ./Vundle.Vim ~/.vim/bundle/
-else if [ -f ~/.vim/vimrc ]; then
-        mv ~/.vim/vimrc ~/.vim/vimrc_bak
-        echo "You old vimrc renamed as vimrc_bak"
-        cp ./vimrc ~/.vim/vimrc
-    else
-        cp ./vimrc ~/.vim/vimrc
-    fi
-else if [ ! -d ~/.vim/bundle ]; then
-        mkdir -p ~/.vim/bundle
-        cp -r ./Vundle.Vim ~/.vim/bundle/
-    else
-        cp -r ./Vundle.Vim ~/.vim/bundle/
-    fi
 fi
 
+if [ ! -d ~/.vim/bundle ]; then
+    mkdir ~/.vim/bundle
+fi
+
+if [ ! -d ~/.vim/bundle/Vundle.Vim ]; then
+    cp -r $(PWD)/Vundle.Vim ~/.vim/bundle/
+fi
+
+#replace vimrc
+if [ -f ~/.vim/vimrc ]; then
+    mv ~/.vim/vimrc ~/.vim/vimrc_bak
+    echo "You old vimrc renamed as _bak"
+fi
+ln -s $(PWD)/vimrc ~/.vim/vimrc
+
+#screen & tmux
+FLIST=".screenrc .tmux.conf"
+for i in $FLIST; do
+if [ -f ~/${i} ]; then
+    rm ~/${i}
+fi
+ln -s $(PWD)/${i} ~/${i}
+done
