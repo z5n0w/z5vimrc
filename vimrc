@@ -161,6 +161,7 @@ filetype plugin indent on
 
     let g:ycm_key_invoke_completion='<C-a>'
 
+
 "JEDI 
     let g:jedi#auto_initialization = 1
     let g:jedi#auto_vim_configuration = 1
@@ -173,3 +174,12 @@ filetype plugin indent on
     let g:tagbar_width=30
     autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
+"python with virtualenv support
+python3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
