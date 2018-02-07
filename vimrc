@@ -1,18 +1,29 @@
 
-"VIM SETTINGS
+" VIM SETTINGS
     if has("autocmd")
         au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     endif
+    
+    set backspace=indent,eol,start 
 
-    let python_highlight_all=1
-    set encoding=utf-8
+    " map shotcut as i like  
+    let mapleader='\'
+    
+    nnoremap <Leader>w :w<CR>
+    nnoremap <Leader>wq :wq<CR>
+    nnoremap <Leader>3 0i#<ESC> 
 
     set autoindent
     set ignorecase
+
     set number
     set relativenumber
 
     set ruler
+    set laststatus=2
+    set background=dark
+    set t_Co=256
+
 
     set foldenable
     set fdm=indent
@@ -25,37 +36,41 @@
 
     syntax on
     filetype off
-
-    set laststatus=2
-
-    set background=dark
-    set t_Co=256
-
     set fileformat=unix
 
     set mouse=v
+    
+    let python_highlight_all=1
+    set encoding=utf-8
 
-"Setup Vundle
+" Setup Vundle
     set rtp+=~/.vim/bundle/Vundle.Vim/
     call vundle#begin()
         Bundle 'VundleVim/Vundle.Vim'
+        
+        " ui 
         Bundle 'vim-airline/vim-airline'
-        Plugin 'vim-airline/vim-airline-themes'
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'Yggdroot/indentLine'
-        Bundle 'darfink/vim-plist'
-        Bundle 'majutsushi/tagbar'
-        Bundle 'Valloric/YouCompleteMe' 
+        Bundle 'vim-airline/vim-airline-themes'
         Bundle 'octol/vim-cpp-enhanced-highlight'
+        Bundle 'Yggdroot/indentLine'
+        " file manager 
+        Bundle 'scrooloose/nerdtree'
+        Bundle 'Xuyuanp/nerdtree-git-plugin'
+        " C 
+        Bundle 'Valloric/YouCompleteMe' 
+        "Bundle 'scrooloose/syntastic'
+        Bundle 'majutsushi/tagbar'
+        " python 
         Bundle 'davidhalter/jedi-vim'
         Bundle 'vim-scripts/indentpython.vim'
+        " others
+        Bundle 'darfink/vim-plist'
         Bundle 'mattn/emmet-vim'
-        "Bundle 'scrooloose/syntastic'
     call vundle#end()
 
 filetype plugin indent on
 
-"Airline
+" Airline
     let g:airline_theme="dark" 
     
     nmap tp :tabp<cr>
@@ -88,13 +103,39 @@ filetype plugin indent on
     let g:airline_detect_modified=1
     let g:airline_detect_paste=1
 
-"NERDTree
+" NERDTree
     let g:NERDTree_title='NERD Tree'
     let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore some files in NERDTree
 
     nmap fm :NERDTree<cr>
 
-""syntastic
+" YouCompleteMe
+    set completeopt=longest,menu
+
+    let g:ycm_confirm_extra_conf=0
+
+    let g:ycm_error_symbol='>>'
+    let g:ycm_warning_symbol='>'
+
+    let g:ycm_complete_in_comments=1
+    let g:ycm_complete_in_strings=1
+
+    let g:ycm_collect_identifiers_from_comments_and_strings=1
+    let g:ycm_collect_identifiers_from_tags_files=1
+
+    let g:ycm_seed_identifiers_with_syntax=1
+
+    let g:ycm_confirm_extra_conf=0
+
+    let g:ycm_min_num_of_chars_for_completion=1
+
+    let g:ycm_cache_omnifunc=0
+
+    nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+    let g:ycm_key_invoke_completion='<C-a>'
+
+" syntastic
     "let g:syntastic_check_on_open=1
     "
     "let g:syntastic_cpp_include_dirs=['/usr/include/']
@@ -134,52 +175,24 @@ filetype plugin indent on
     "nnoremap <Leader>sn :lnext<cr>
     "nnoremap <Leader>sp :lprevious<cr>
 
-"YouCompleteMe
-    set completeopt=longest,menu
-
-    let g:ycm_confirm_extra_conf=0
-
-    let g:ycm_error_symbol='>>'
-    let g:ycm_warning_symbol='>'
-
-    let g:ycm_complete_in_comments=1
-    let g:ycm_complete_in_strings=1
-
-    let g:ycm_collect_identifiers_from_comments_and_strings=1
-    let g:ycm_collect_identifiers_from_tags_files=1
-
-
-    let g:ycm_seed_identifiers_with_syntax=1
-
-    let g:ycm_confirm_extra_conf=0
-
-    let g:ycm_min_num_of_chars_for_completion=1
-
-    let g:ycm_cache_omnifunc=0
-
-    nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-    let g:ycm_key_invoke_completion='<C-a>'
-
-
-"JEDI 
+" JEDI 
     let g:jedi#auto_initialization = 1
     let g:jedi#auto_vim_configuration = 1
     let g:jedi#use_tabs_not_buffers = 1
     let g:jedi#use_splits_not_buffers = "top"
 
-"Tagbar
+" Tagbar
     nmap tb :TagbarToggle<CR>
     let g:tagbar_ctags_bin='/usr/bin/ctags'
     let g:tagbar_width=30
     autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
-"python with virtualenv support
+" python with virtualenv support
 python3 << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
+    activate_this=os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__ = activate_this))
 EOF
