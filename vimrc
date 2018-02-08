@@ -11,7 +11,8 @@
     
     nnoremap <Leader>w :w<CR>
     nnoremap <Leader>wq :wq<CR>
-    nnoremap <Leader>3 0i#<ESC> 
+    nnoremap <Leader>q :q<CR>
+    nnoremap <Leader><Leader>q :q!<CR>
 
     set autoindent
     set ignorecase
