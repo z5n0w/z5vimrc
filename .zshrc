@@ -97,6 +97,9 @@ source $ZSH/oh-my-zsh.sh
 
 alias vi=vim
 
+export LC_ALL=en_US.UTF-8  
+export LANG=en_US.UTF-8
+
 # Prompt format:
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
@@ -105,5 +108,14 @@ PROMPT="
 %{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
 ${git_info}\
+\
 $exit_code
-%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+"
+
+if [[ $EUID -ne 0 ]]; then 
+    USERP="%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+else
+    USERP="%{$terminfo[bold]$fg[green]%}# %{$reset_color%}"
+fi 
+
+PROMPT+=$USERP
