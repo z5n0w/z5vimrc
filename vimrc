@@ -58,7 +58,9 @@
         Bundle 'scrooloose/nerdtree'
         Bundle 'Xuyuanp/nerdtree-git-plugin'
         " C 
-        Bundle 'Valloric/YouCompleteMe' 
+        if !has("win32")
+            Bundle 'Valloric/YouCompleteMe' 
+        endif
         "Bundle 'scrooloose/syntastic'
         Bundle 'majutsushi/tagbar'
         " python 
@@ -184,16 +186,20 @@ filetype plugin indent on
 
 " Tagbar
     nmap tb :TagbarToggle<CR>
-    let g:tagbar_ctags_bin='/usr/bin/ctags'
+    if has("macunix")
+        let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+    else 
+        let g:tagbar_ctags_bin='/usr/bin/ctags'
+    endif 
     let g:tagbar_width=30
     autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
 
 " python with virtualenv support
-python3 << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this=os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__ = activate_this))
-EOF
+"python3 << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"    project_base_dir = os.environ['VIRTUAL_ENV']
+"    activate_this=os.path.join(project_base_dir, 'bin/activate_this.py')
+"    execfile(activate_this, dict(__file__ = activate_this))
+"EOF

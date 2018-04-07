@@ -117,5 +117,5 @@ if [[ $EUID -ne 0 ]]; then
 else
     USERP="%{$terminfo[bold]$fg[green]%}# %{$reset_color%}"
 fi 
-
 PROMPT+=$USERP
+
