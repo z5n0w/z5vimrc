@@ -36,7 +36,6 @@
     set expandtab
 
     syntax on
-    filetype off
     set fileformat=unix
 
     set mouse=v
@@ -44,34 +43,33 @@
     let python_highlight_all=1
     set encoding=utf-8
 
-" Setup Vundle
-    set rtp+=~/.vim/bundle/Vundle.Vim/
-    call vundle#begin()
-        Bundle 'VundleVim/Vundle.Vim'
-        
-        " ui 
-        Bundle 'vim-airline/vim-airline'
-        Bundle 'vim-airline/vim-airline-themes'
-        Bundle 'octol/vim-cpp-enhanced-highlight'
-        Bundle 'Yggdroot/indentLine'
-        " file manager 
-        Bundle 'scrooloose/nerdtree'
-        Bundle 'Xuyuanp/nerdtree-git-plugin'
-        " C 
-        if !has("win32")
-            Bundle 'Valloric/YouCompleteMe' 
-        endif
-        "Bundle 'scrooloose/syntastic'
-        Bundle 'majutsushi/tagbar'
-        " python 
-        Bundle 'davidhalter/jedi-vim'
-        Bundle 'vim-scripts/indentpython.vim'
-        " others
-        Bundle 'darfink/vim-plist'
-        Bundle 'mattn/emmet-vim'
-    call vundle#end()
-
-filetype plugin indent on
+" Setup vim-plug
+call plug#begin('~/.vim/bundle')
+    Plug 'junegunn/vim-plug' 
+    " ui 
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    Plug 'octol/vim-cpp-enhanced-highlight'
+    Plug 'Yggdroot/indentLine'
+    " file manager 
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
+    " C 
+    "Plug 'scrooloose/syntastic'
+    Plug 'majutsushi/tagbar'
+    " python 
+    Plug 'davidhalter/jedi-vim'
+    Plug 'vim-scripts/indentpython.vim'
+    " lc3 assembly
+    Plug 'zacharied/lc3.vim'
+    " others
+    Plug 'darfink/vim-plist'
+    Plug 'mattn/emmet-vim'
+    if has("unix")
+            " universal completer 
+            Plug 'Valloric/YouCompleteMe' 
+    endif 
+call plug#end()
 
 " Airline
     let g:airline_theme="dark" 
