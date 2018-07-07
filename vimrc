@@ -14,6 +14,15 @@
     nnoremap <Leader>q :q<CR>
     nnoremap <Leader><Leader>q :q!<CR>
 
+    nnoremap <Leader>bn :bnext<CR>
+    nnoremap <Leader>bp :bprev<CR>
+
+    nmap tp :tabp<cr>
+    nmap tn :tabn<cr>
+    nmap tx :tabc<cr>
+    nmap tc :tabnew<cr>
+    nmap tl :tabs<cr>
+
     set autoindent
     set ignorecase
 
@@ -35,6 +44,10 @@
     set shiftwidth=4
     set expandtab
 
+    if has("autocmd")
+        autocmd Filetype asm setlocal tabstop=8 softtabstop=8 shiftwidth=8
+    endif 
+    
     syntax on
     set fileformat=unix
 
@@ -74,12 +87,6 @@ call plug#end()
 " Airline
     let g:airline_theme="dark" 
     
-    nmap tp :tabp<cr>
-    nmap tn :tabn<cr>
-    nmap tx :tabc<cr>
-    nmap tc :tabnew<cr>
-    nmap tl :tabs<cr>
-
     let g:airline#extensions#tabline#enabled=1
     let g:airline#extensions#tabline#buffer_nr_show=1
     
