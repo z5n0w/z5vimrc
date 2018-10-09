@@ -119,3 +119,4 @@ else
 fi 
 PROMPT+=$USERP
 
+source ~/.bash_profile
