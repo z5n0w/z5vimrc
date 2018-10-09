@@ -62,19 +62,17 @@ call plug#begin('~/.vim/bundle')
     " ui 
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'octol/vim-cpp-enhanced-highlight'
     Plug 'Yggdroot/indentLine'
     " file manager 
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    " C 
+    " C family 
+    Plug 'octol/vim-cpp-enhanced-highlight'
     "Plug 'scrooloose/syntastic'
     Plug 'majutsushi/tagbar'
     " python 
     Plug 'davidhalter/jedi-vim'
     Plug 'vim-scripts/indentpython.vim'
-    " lc3 assembly
-    Plug 'zacharied/lc3.vim'
     " others
     Plug 'darfink/vim-plist'
     Plug 'mattn/emmet-vim'
