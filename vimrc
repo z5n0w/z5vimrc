@@ -4,6 +4,15 @@
         au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
     endif
     
+    if !exists("g:os")
+        if has("win64") || has("win32")
+            let g:os = "Windows"
+        else
+            let g:os = substitute(system('uname'), '\n', '', '')
+        endif
+    endif 
+
+
     set backspace=indent,eol,start 
 
     " map shotcut as i like  
@@ -76,7 +85,7 @@ call plug#begin('~/.vim/bundle')
     " others
     Plug 'darfink/vim-plist'
     Plug 'mattn/emmet-vim'
-    if has("unix")
+    if g:os != "Windows"
             " universal completer 
             Plug 'Valloric/YouCompleteMe' 
     endif 
@@ -117,7 +126,11 @@ call plug#end()
 
 " YouCompleteMe
     set completeopt=longest,menu
-    let g:ycm_server_python_interpreter="/usr/local/bin/python3"
+    
+    if g:os == "Darwin"
+        let g:ycm_server_python_interpreter="/usr/local/bin/python3"
+    endif
+
     let g:ycm_confirm_extra_conf=0
 
     let g:ycm_error_symbol='>>'
