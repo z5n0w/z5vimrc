@@ -73,7 +73,7 @@ call plug#begin('~/.vim/bundle')
     Plug 'vim-airline/vim-airline-themes'
     Plug 'Yggdroot/indentLine'
     " file manager 
-    Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree' , { 'on' : 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     " C family 
     Plug 'octol/vim-cpp-enhanced-highlight'
@@ -87,7 +87,7 @@ call plug#begin('~/.vim/bundle')
     Plug 'mattn/emmet-vim'
     if g:os != "Windows"
             " universal completer 
-            Plug 'Valloric/YouCompleteMe' 
+            Plug 'Valloric/YouCompleteMe' , { 'do' : 'python3 ./install.py' }
     endif 
 call plug#end()
 
@@ -122,7 +122,7 @@ call plug#end()
     let g:NERDTree_title='NERD Tree'
     let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore some files in NERDTree
 
-    nmap fm :NERDTree<cr>
+    nmap fm :NERDTreeToggle<cr>
 
 " YouCompleteMe
     set completeopt=longest,menu
