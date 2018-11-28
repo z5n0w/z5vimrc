@@ -13,8 +13,6 @@
     endif 
 
 
-    set backspace=indent,eol,start 
-
     " map shotcut as i like  
     let mapleader='\'
     
@@ -43,7 +41,6 @@
     set background=dark
     set t_Co=256
 
-
     set foldenable
     set fdm=indent
 
@@ -52,6 +49,8 @@
     set softtabstop=4
     set shiftwidth=4
     set expandtab
+
+    set backspace=indent,eol,start 
 
     if has("autocmd")
         autocmd Filetype asm setlocal tabstop=8 softtabstop=8 shiftwidth=8
@@ -86,11 +85,9 @@ call plug#begin('~/.vim/bundle')
     Plug 'darfink/vim-plist'
     Plug 'mattn/emmet-vim'
     " universal completer 
-    if g:os == "Darwin"
-        Plug 'Valloric/YouCompleteMe' , { 'do' : 'python3 ./install.py' }
-    elseif g:os == "Linux" 
+    if g:os == "Linux"
         Plug 'Valloric/YouCompleteMe' , { 'do' : 'python3 install.py --clang-completer --system-libclang' }
-    endif 
+    endif
 call plug#end()
 
 " Airline
@@ -129,10 +126,6 @@ call plug#end()
 " YouCompleteMe
     set completeopt=longest,menu
     
-    if g:os == "Darwin"
-        let g:ycm_server_python_interpreter="/usr/local/bin/python3"
-    endif
-
     let g:ycm_confirm_extra_conf=0
 
     let g:ycm_error_symbol='>>'
@@ -146,12 +139,13 @@ call plug#end()
 
     let g:ycm_seed_identifiers_with_syntax=1
 
-    let g:ycm_confirm_extra_conf=0
-
     let g:ycm_min_num_of_chars_for_completion=1
 
     let g:ycm_cache_omnifunc=0
 
+    " Go to Definition variable
+    nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+    nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
     nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
     let g:ycm_key_invoke_completion='<C-a>'
