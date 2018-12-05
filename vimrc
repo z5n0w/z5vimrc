@@ -88,6 +88,9 @@ call plug#begin('~/.vim/bundle')
     if g:os == "Linux"
         Plug 'Valloric/YouCompleteMe' , { 'do' : 'python3 install.py --clang-completer --system-libclang' }
     endif
+    if g:os == "Darwin"
+        Plug 'Valloric/YouCompleteMe' , { 'do' : 'python install.py --clang-completer' }
+    endif
 call plug#end()
 
 " Airline
@@ -198,7 +201,7 @@ call plug#end()
 
 " Tagbar
     nmap tb :TagbarToggle<CR>
-    if has("macunix")
+    if g:os == "Darwin"
         let g:tagbar_ctags_bin='/usr/local/bin/ctags'
     else 
         let g:tagbar_ctags_bin='/usr/bin/ctags'
