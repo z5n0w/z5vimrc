@@ -25,11 +25,10 @@ do
             if [ -d ~/.vim/bundle/vim-plug ]; then 
                 rm -r ~/.vim/bundle/vim-plug 
             fi 
-            git clone https://github.com/junegunn/vim-plug.git ~/.vim/bundle/vim-plug 
-            ln -s ~/.vim/bundle/vim-plug/plug.vim ~/.vim/autoload/ 
+	    curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
             # replace ori vimrc 
             if [ -f ~/.vim/vimrc ]; then
-                mv ~/.vim/vimrc ~/.vim/vimrc_bak
+		mv ~/.vim/vimrc ~/.vim/vimrc_$(data)
                 echo "old vimrc renamed as _bak"
             fi
             ln -s ${PWD}/vimrc ~/.vim/vimrc
