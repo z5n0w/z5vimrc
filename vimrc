@@ -84,11 +84,8 @@ call plug#begin('~/.vim/bundle')
     Plug 'darfink/vim-plist'
     Plug 'mattn/emmet-vim'
     " universal completer 
-    if g:os == "Linux"
-        Plug 'Valloric/YouCompleteMe' , { 'do' : 'python3 install.py --clang-completer --system-libclang' }
-    endif
-    if g:os == "Darwin"
-        Plug 'Valloric/YouCompleteMe' , { 'do' : 'python install.py --clang-completer' }
+    if g:os != "Windows"
+        Plug 'Valloric/YouCompleteMe'
     endif
 call plug#end()
 
