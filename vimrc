@@ -85,7 +85,7 @@ call plug#begin('~/.vim/bundle')
     Plug 'mattn/emmet-vim'
     " universal completer 
     if g:os != "Windows"
-        Plug 'Valloric/YouCompleteMe'
+        Plug 'Valloric/YouCompleteMe', {'do': 'python3 ./install.py'}
     endif
 call plug#end()
 
