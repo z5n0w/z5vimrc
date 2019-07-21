@@ -13,7 +13,7 @@ do
             	fi
             	ln -s ${PWD}/${i} ~/${i}
             done
-            ;&
+            ;;
         v)
             # vim 
             # using vim-plug as plugin manager
