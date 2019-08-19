@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/build/bin:/usr/local/bin:$PATH
 export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
 
 # Path to your oh-my-zsh installation.
