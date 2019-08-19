@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/build/bin:/usr/local/bin:$PATH
-export PATH="/usr/local/opt/inetutils/libexec/gnubin:$PATH"
+
+# PATH
+export PATH=/usr/local/bin:$PATH 
+# Linux
+export PATH=$HOME/build/bin:$PATH
+# macOS 
+export PATH=/usr/local/opt/inetutils/libexec/gnubin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
