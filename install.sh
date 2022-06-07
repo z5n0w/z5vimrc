@@ -23,8 +23,8 @@ while getopts "av" arg
 do 
     case $arg in 
         a)
-            # screen tmux zsh
-            FLIST=".screenrc .tmux.conf .zshrc"
+            # screen tmux
+            FLIST=".screenrc .tmux.conf"
             echo "using z5n0w's $FLIST"
             for i in $FLIST; do
             	if [ -f ~/${i} ]; then
